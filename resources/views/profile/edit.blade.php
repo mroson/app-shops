@@ -24,6 +24,11 @@
     </div>
 </section>
 <!--...::: Breadcrumb Section End :::... -->
+@if(session('status'))
+    <p class="text-green-500 text-sm font-bold">
+        {{ session('status') }}
+    </p>
+@endif
 
 <section class="section-edit-profile">
     <div class="section-space">
@@ -105,19 +110,7 @@
 
                         <!-- User Role -->
 <div>
-    <label for="role" class="mb-4 block font-semibold text-colorTextTitle">User Role</label>
-    <select name="role" id="role"
-        class="w-full rounded-[50px] border border-colorTextTitle bg-white px-[30px] py-4 text-base outline-none"
-        required>
-        @foreach($roles as $role)
-            <option value="{{ $role->id }}" {{ $user->roles->contains('id', $role->id) ? 'selected' : '' }}>
-                {{ ucfirst(str_replace('_', ' ', $role->name)) }}
-            </option>
-        @endforeach
-    </select>
-    @error('role')
-        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-    @enderror
+    
 </div>
 
                         <!-- Submit Button -->

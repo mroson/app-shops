@@ -35,6 +35,15 @@
           <!-- Breadcrumb Background -->
         </section>
         <!--...::: Breadcrumb Section End :::... -->
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
     <section class="section-reset-password">
         <div class="section-space">

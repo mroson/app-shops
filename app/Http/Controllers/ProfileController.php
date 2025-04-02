@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 
 class ProfileController extends Controller
 {
@@ -19,64 +21,52 @@ class ProfileController extends Controller
      */
     public function showProfile()
     {
-        $user = auth()->user()->load('roles'); // ✅ Cargar roles sin afectar el usuario
-        $user = auth()->user()->load('businesses'); // Cargar negocios del usuario
-        return view('profile.profile', compact('user'));
+        $user = auth()->user();
+    $roles = Role::all() ?? collect([]); // Si no hay roles, devuelve una colección vacía
+
+        return view('profile.profile', compact('user','roles'));
     }
 
     public function edit()
-    {
-        $user = auth()->user();
-        $roles = Role::all(); // Obtener todos los roles
-        return view('profile.edit', compact('user', 'roles'));
-    }
+{
+    $user = auth()->user()->load('roles'); // ✅ Cargar roles correctamente
+    $roles = Role::all(); // Obtener todos los roles disponibles
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $request->user()->id],
-            'phone' => ['nullable', 'string', 'max:20'],
-            'residence' => ['nullable', 'string', 'max:255'],
-            'country' => ['nullable', 'string', 'max:255'],
-            'instagram_username' => ['nullable', 'string', 'max:255'],
-            'role' => 'required|exists:roles,id',
-        ]);
 
-        $user = $request->user();
+    return view('profile.edit', compact('user', 'roles'));
+}
 
-        if ($request->filled('password')) {
-            $validated['password'] = bcrypt($request->password);
+public function update(ProfileUpdateRequest $request): RedirectResponse
+{
+    $validated = $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $request->user()->id],
+        'phone' => ['nullable', 'string', 'max:20'],
+        'residence' => ['nullable', 'string', 'max:255'],
+        'country' => ['nullable', 'string', 'max:255'],
+        'instagram_username' => ['nullable', 'string', 'max:255'],
+        'role_id' => ['nullable', 'exists:roles,id'], // ✅ Asegurar que el role_id exista en la BD
+    ]);
+
+    $user = $request->user();
+    $user->update(collect($validated)->except('role_id')->toArray()); // Evitar actualizar role_id directamente en users
+
+    // Verificar si el usuario ya tiene un rol asignado
+    if ($request->filled('role_id')) {
+        $user->roles()->sync([$validated['role_id']]); // ✅ Asigna el nuevo role_id
+    } elseif (!$user->roles()->exists()) {
+        // Si el usuario no tiene rol, asignar el rol "tourist_user" (ID: 2) por defecto
+        $defaultRole = Role::find(1); // Role ID: 2 -> "tourist_user"
+        if ($defaultRole) {
+            $user->roles()->sync([$defaultRole->id]); // ✅ Asignar "tourist_user"
         }
-
-        $user->roles()->sync([$request->role]); // Asignar rol
-        $user->update($validated);
-
-        return redirect()->route('profile.edit')->with('status', 'Profile updated successfully!');
     }
 
-    // Actualizar la contraseña del usuario
-    public function updatePassword(Request $request)
-    {
-        $validated = $request->validate([
-            'current_password' => ['required', 'current_password'],
-            'new_password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+    return redirect()->route('profile.edit')->with('status', 'Profile updated successfully!');
+}
 
-        $user = Auth::user();
-        $user->password = Hash::make($request->new_password);
-        $user->save();
-
-        return redirect()->route('profile.edit')->with('status', 'Password updated successfully!');
-    }
-
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
+    
+public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],

@@ -1,27 +1,25 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Role extends Model
 {
     use HasFactory;
 
-    // Si tu tabla se llama "roles" (en plural), no necesitas especificar el nombre de la tabla,
-    // pero si fuera otro nombre, puedes hacerlo de la siguiente manera:
-    // protected $table = 'nombre_de_tu_tabla';
+    // Campos permitidos para asignación masiva
+    // protected $fillable = ['name'];
 
-    // Establecemos los campos que se pueden asignar masivamente
-    protected $fillable = [
-        'name',
-    ];
-
-    // En app/Models/Role.php
-
+    /**
+     * Relación muchos a muchos con User
+     */
+    // Modelo Role
 public function users()
 {
-    return $this->belongsToMany(User::class);
+    return $this->belongsToMany(User::class, 'role_user', 'role_id', 'user_id');
 }
 
 }

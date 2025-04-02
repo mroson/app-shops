@@ -19,6 +19,8 @@ class Offer extends Model
         'start_date',
         'end_date',
         'status',
+        'token', 
+        'qr_code'
     ];
 
     // Relación con Business
@@ -28,7 +30,8 @@ class Offer extends Model
     }
     public function users()
 {
-    return $this->belongsToMany(User::class)->withTimestamps();
+    return $this->belongsToMany(User::class, 'offer_scans'); // Asegúrate de que la tabla pivot sea la correcta
+
 }
 
 }

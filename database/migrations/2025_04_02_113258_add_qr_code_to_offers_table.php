@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('tourist'); // Default 'tourist' para usuarios nuevos
-
-        });
+        if (!Schema::hasColumn('offers', 'qr_code')) {
+            Schema::table('offers', function (Blueprint $table) {
+                $table->text('qr_code')->nullable();
+            });
+        }
     }
 
     /**
@@ -22,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('offers', function (Blueprint $table) {
             //
         });
     }

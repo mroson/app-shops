@@ -17,20 +17,27 @@ class UserRoleController extends Controller
      */
     public function assignRoleToUser($userId, $roleName)
     {
-        // Busca el rol por nombre
-        $role = Role::where('name', $roleName)->first();
-
-        // Busca al usuario por ID
+        // Verifica si el usuario existe
         $user = User::find($userId);
-
-        if ($role && $user) {
-            // Asocia el rol con el usuario
-            $user->role()->associate($role);
-            $user->save();
-
-            return response()->json(['message' => 'Role assigned successfully!'], 200);
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
         }
 
-        return response()->json(['message' => 'User or Role not found'], 404);
+        // Verifica si el rol existe
+        $role = Role::where('name', $roleName)->first();
+        if (!$role) {
+            return response()->json(['message' => 'Role not found'], 404);
+        }
+
+        // Verifica si el usuario ya tiene ese rol
+        if ($user->roles->contains('name', $roleName)) {
+            return response()->json(['message' => 'User already has this role'], 400);
+        }
+
+        // Asigna el rol al usuario
+        $user->roles()->syncWithoutDetaching([$role->id]);
+
+        return response()->json(['message' => 'Role assigned successfully!'], 200);
     }
 }
+

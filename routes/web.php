@@ -11,6 +11,7 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\OfferController;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Http\Controllers\OfferRedemptionController;
+use App\Http\Controllers\UserRoleController;
 
 
 Route::get('/', function () {
@@ -39,6 +40,8 @@ Route::post('/businesses', [BusinessController::class, 'store'])->name('business
 Route::put('/businesses/{business}', [BusinessController::class, 'update'])->name('businesses.update');
 Route::get('/businesses/create', [BusinessController::class, 'create'])->name('businesses.create');
 Route::get('/businesses/{id}', [BusinessController::class, 'show'])->name('businesses.show');
+Route::resource('businesses', BusinessController::class)->except(['destroy']);
+
 
 // PRofile 
 Route::middleware(['auth'])->group(function () {
@@ -70,9 +73,16 @@ require __DIR__.'/auth.php';
 
 // Ruta para OFFERS
 Route::resource('offers', OfferController::class);
-
 Route::get('/admin', function () {
     return "Welcome Admin";
 })->middleware('role:admin_user');
-
 Route::get('/offers/redeem/{token}', [OfferRedemptionController::class, 'redeem'])->name('offers.redeem');
+
+// Ruta para asignar un rol a un usuario
+Route::post('users/{userId}/assign-role/{roleName}', [UserRoleController::class, 'assignRoleToUser']);
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+
+

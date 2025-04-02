@@ -108,120 +108,108 @@
     </section>
 
 
-<section class="section-offers-list">
+    <section class="section-offers-list">
     
-<div class="mx-auto mb-10 max-w-2xl text-center md:mb-[60px] lg:mb-20">
-    <h2>Ofertas Disponibles</h2>
-            </div>
+    <div class="mx-auto mb-10 max-w-2xl text-center md:mb-[60px] lg:mb-20">
+        <h2>Ofertas Disponibles</h2>
+    </div>
     
-    @if($offers->count() > 0)
-    <div class="section-space">
+    @if(isset($offers) && $offers->count() > 0)
+        <div class="section-space">
             @foreach($offers as $offer)
-            <div class="container mb-[60px]">
-              <div class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]">
-                <div class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-2 xl:grid-cols-[minmax(0,0.75fr)_1fr] xl:gap-20">
-                  <!-- Image Block -->
-                  <div class="jos relative z-10 order-2 mx-auto inline-flex max-w-[500px] items-center justify-center lg:order-1 lg:max-w-full" data-jos_animation="fade-right">
-                 
-                    {!! QrCode::size(300)->generate(route('offers.index', $offer->id)) !!}
-
-                  </div>
-
-                  <!-- Content Block -->
-                  <div class="order-1 lg:order-2">
-                    <div class="mb-[30px]">
-                      <h2 class="jos">{{ $offer->title }}</h2>
-                      <p class="mt-5">
-                        {{ $offer->description ?? 'No description available' }}
-                      </p>
-                    </div>
-
-                    <ul class="mb-[50px] grid grid-cols-1 gap-y-2">
-                      <li class="jos">
-                        <div class="flex items-start gap-4">
-                          <span class="h-6 w-6 text-colorTextTitle">
-                            <i class="ri-store-line"></i>
-                          </span>
-                          <div class="flex-1">
-                            <div class="display-heading display-heading-5">
-                              Business: {{ $offer->business->name }}
+                <div class="container mb-[60px]">
+                    <div class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]">
+                        <div class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-2 xl:grid-cols-[minmax(0,0.75fr)_1fr] xl:gap-20">
+                            <!-- Image Block -->
+                            <div class="jos relative z-10 order-2 mx-auto inline-flex max-w-[500px] items-center justify-center lg:order-1 lg:max-w-full" data-jos_animation="fade-right">
+                                {!! QrCode::size(300)->generate(route('offers.index', $offer->id)) !!}
                             </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="jos">
-                        <div class="flex items-start gap-4">
-                          <span class="h-6 w-6 text-colorTextTitle">
-                            <i class="ri-money-dollar-circle-line"></i>
-                          </span>
-                          <div class="flex-1">
-                            <div class="display-heading display-heading-5">
-                              Price: ${{ number_format($offer->price, 2) }}
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="jos">
-                        <div class="flex items-start gap-4">
-                          <span class="h-6 w-6 text-colorTextTitle">
-                            <i class="ri-percent-line"></i>
-                          </span>
-                          <div class="flex-1">
-                            <div class="display-heading display-heading-5">
-                              Discount: {{ $offer->discount ?? '0' }}%
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="jos">
-                        <div class="flex items-start gap-4">
-                          <span class="h-6 w-6 text-colorTextTitle">
-                            <i class="ri-calendar-line"></i>
-                          </span>
-                          <div class="flex-1">
-                            <div class="display-heading display-heading-5">
-                              Valid from {{ $offer->start_date }} to {{ $offer->end_date }}
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
 
-                    <!-- Acciones -->
-                    <div class="flex flex-col gap-3 lg:flex-row">
-                    <a href="{{ $offer->business->google_maps_url }}" target="_blank" class="btn btn-outline-black">
+                            <!-- Content Block -->
+                            <div class="order-1 lg:order-2">
+                                <div class="mb-[30px]">
+                                    <h2 class="jos">{{ $offer->title }}</h2>
+                                    <p class="mt-5">
+                                        {{ $offer->description ?? 'No description available' }}
+                                    </p>
+                                </div>
+
+                                <ul class="mb-[50px] grid grid-cols-1 gap-y-2">
+                                    <li class="jos">
+                                        <div class="flex items-start gap-4">
+                                            <span class="h-6 w-6 text-colorTextTitle"><i class="ri-store-line"></i></span>
+                                            <div class="flex-1">
+                                                <div class="display-heading display-heading-5">
+                                                    Business: {{ $offer->business->name }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="jos">
+                                        <div class="flex items-start gap-4">
+                                            <span class="h-6 w-6 text-colorTextTitle"><i class="ri-money-dollar-circle-line"></i></span>
+                                            <div class="flex-1">
+                                                <div class="display-heading display-heading-5">
+                                                    Price: ${{ number_format($offer->price, 2) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="jos">
+                                        <div class="flex items-start gap-4">
+                                            <span class="h-6 w-6 text-colorTextTitle"><i class="ri-percent-line"></i></span>
+                                            <div class="flex-1">
+                                                <div class="display-heading display-heading-5">
+                                                    Discount: {{ $offer->discount ?? '0' }}%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="jos">
+                                        <div class="flex items-start gap-4">
+                                            <span class="h-6 w-6 text-colorTextTitle"><i class="ri-calendar-line"></i></span>
+                                            <div class="flex-1">
+                                                <div class="display-heading display-heading-5">
+                                                    Valid from {{ $offer->start_date }} to {{ $offer->end_date }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <!-- Acciones -->
+                                <div class="flex flex-col gap-3 lg:flex-row">
+                                    <a href="{{ $offer->business->google_maps_url }}" target="_blank" class="btn btn-outline-black">
                                         <span>View on Map</span>
                                         <span>View on Map</span>
                                     </a>
-                      <a href="{{ route('offers.edit', $offer->id) }}" class="btn btn-outline-black">
-                        <span>Edit</span>
-                        <span>Edit</span>
-                      </a>
-                      <form action="{{ route('offers.destroy', $offer->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')">
-                          <span>Delete</span>
-                          <span>Delete</span>
-                        </button>
-                      </form>
+                                    <a href="{{ route('offers.edit', $offer->id) }}" class="btn btn-outline-black">
+                                        <span>Edit</span>
+                                        <span>Edit</span>
+                                    </a>
+                                    <form action="{{ route('offers.destroy', $offer->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')">
+                                            <span>Delete</span>
+                                            <span>Delete</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
             @endforeach
+        </div>
+    @else
+        <div class="mx-auto mb-10 max-w-2xl text-center md:mb-[60px] lg:mb-20">
+            <h3>No hay ofertas disponibles para este negocio.</h3>
+        </div>
+    @endif           
+    
+</section>
 
-                @else
-                <div class="mx-auto mb-10 max-w-2xl text-center md:mb-[60px] lg:mb-20">
-                    <h3>No hay ofertas disponibles.</h3>
-                </div>
-                @endif           
-            
-               
-
-    </div>
-    </section>
 
     <h2 class="text-xl font-bold mb-4">Usuarios que escanearon ofertas</h2>
 
