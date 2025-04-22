@@ -39,7 +39,7 @@
         <div class="section-space">
 
         @forelse ($offers as $offer)  
-            <div class="container mb-[60px]">
+            <div class="container mb-[60px] rounded-[10px] bg-white p-5 shadow-custom-1 sm:p-[50px]">
               <div class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]">
                 <div class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-2 xl:grid-cols-[minmax(0,0.75fr)_1fr] xl:gap-20">
                   <!-- Image Block -->

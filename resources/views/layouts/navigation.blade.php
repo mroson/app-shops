@@ -9,15 +9,15 @@
             <!-- Header Left Block -->
             <div>
               <!-- Header Logo -->
-              <a href="index.html" class="h-auto w-auto">
-                <img
-                  src="assets/img/images/logo-alter.png"
-                  alt="logo"
-                  width="112"
-                  height="40"
-                />
-              </a>
-              <!-- Header Logo -->
+<a href="{{ url('/') }}" class="h-auto w-auto">
+  <img
+    src="{{ asset('img/fullmojo-logo.png') }}"
+    alt="logo"
+    width="200"
+    height="80"
+  />
+</a>
+<!-- Header Logo -->
             </div>
             <!-- Header Left Block -->
 

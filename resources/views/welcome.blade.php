@@ -4,10 +4,141 @@
 
 @section('content')
 
+<!--...::: Hero Section Start :::... -->
+<section class="section-hero"  style="background-image: url('{{ asset('img/images/travel-with-mojo.jpg') }}'); background-size: cover; background-position: center;">          <!-- Section Space -->
+>
+          <!-- Section Space -->
+          <div class="section-space-bottom pt-24 md:pt-32 lg:pt-40 xl:pt-52">
+            <!-- Section Container -->
+            <div class="container">
+              <!-- Hero Area -->
+              <div
+                class="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-2 xl:grid-cols-[1fr_minmax(0,0.5fr)]"
+              >
+                <!-- Hero Content Block -->
+                <div class="text-center lg:text-left">
+                  <h1 class="jos mb-6 text-white">“Tu ciudad.<br />
+                  Tu flow. Tu descuento.”</h1>
+                  <p class="mx-auto mb-12 max-w-xl lg:mx-0 xxl:max-w-3xl">
+                    Building a next-gen crypto wallet and trading platform
+                    requires a comprehensive understanding of the evolving to a
+                    crypto landscape and the needs of users.
+                  </p>
+
+                  <div class="flex flex-wrap gap-6">
+                    <a href="{{ route('login') }}" class="btn btn-primary">
+                      <span>Create Account</span>
+                      <span>Create Account</span>
+                    </a>
+                    <a href="{{ route('login') }}" class="btn btn-dark">
+                      <span>Contact Us</span>
+                      <span>Contact Us</span>
+                    </a>
+                  </div>
+                 
+                </div>
+                <!-- Hero Content Block -->
+
+                <!-- Hero Image Block -->
+                <div class="mx-auto">
+                  <img
+                    src="assets/img/images/home-2/hero-2-img-1.png"
+                    alt="hero-2-img-1"
+                    width="472"
+                    height="567"
+                  />
+                </div>
+                <!-- Hero Image Block -->
+              </div>
+              <!-- Hero Area -->
+            </div>
+            <!-- Section Container -->
+          </div>
+          <!-- Section Space -->
+        </section>
+        <!--...::: Hero Section End :::... -->
+
+        <!--...::: Fun-fact Section Start :::... -->
+        <div class="fun-fact-section">
+          <!-- Section Background -->
+          <div class="bg-colorTextTitle">
+            <!-- Section Space -->
+            <div class="py-20 lg:py-[100px]">
+              <!-- Section Container -->
+              <div class="container">
+                <!-- Fun-fact Area  -->
+                <ul
+                  class="grid grid-cols-1 justify-between gap-x-10 gap-y-10 sm:grid-cols-2 lg:flex"
+                >
+                  <!-- Fun-fact Item -->
+                  <li class="text-center text-white">
+                    <div
+                      class="display-heading display-heading-2 mb-1 text-white"
+                      data-module="countup"
+                    >
+                      €<span class="start-number" data-countup-number="9"
+                        >20</span
+                      >K
+                    </div>
+                    <span>Total value locked</span>
+                  </li>
+                  <!-- Fun-fact Item -->
+                  <!-- Fun-fact Item -->
+                  <li class="text-center text-white">
+                    <div
+                      class="display-heading display-heading-2 mb-1 text-white"
+                      data-module="countup"
+                    >
+                      $<span class="start-number" data-countup-number="5"
+                        >5</span
+                      >K
+                    </div>
+                    <span>Total trading volume</span>
+                  </li>
+                  <!-- Fun-fact Item -->
+                  <!-- Fun-fact Item -->
+                  <li class="text-center text-white">
+                    <div
+                      class="display-heading display-heading-2 mb-1 text-white"
+                      data-module="countup"
+                    >
+                      <span class="start-number" data-countup-number="0.1"
+                        >0.1</span
+                      >%
+                    </div>
+                    <span>Lowest trade free</span>
+                  </li>
+                  <!-- Fun-fact Item -->
+                  <!-- Fun-fact Item -->
+                  <li class="text-center text-white">
+                    <div
+                      class="display-heading display-heading-2 mb-1 text-white"
+                      data-module="countup"
+                    >
+                      <span class="start-number" data-countup-number="50"
+                        >50</span
+                      >%
+                    </div>
+                    <span>Discount on original price</span>
+                  </li>
+                  <!-- Fun-fact Item -->
+                </ul>
+                <!-- Fun-fact Area  -->
+              </div>
+              <!-- Section Container -->
+            </div>
+            <!-- Section Space -->
+          </div>
+          <!-- Section Background -->
+        </div>
+        <!--...::: Fun-fact Section End :::... -->
+
+
+
  <!--...::: Service Section Start :::... -->
  <section class="section-service" id="service">
           <!-- Section Background -->
-          <div class="bg-colorGrey">
+          <div class="">
             <!-- Section Space -->
             <div class="section-space">
               <!-- Section Container -->
@@ -21,7 +152,7 @@
                     Tu guía de promociones en Fuerteventura
                                     </h2>
                   </div>
-                  <a href="services.html" class="jos btn btn-primary">
+                  <a href="{{ route('offers.index') }}" class="jos btn btn-primary">
                     <span>View all services</span>
                     <span>View all services</span>
                   </a>

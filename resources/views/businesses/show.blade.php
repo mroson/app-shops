@@ -9,7 +9,7 @@
    
         
             <!-- Section Container -->
-            <div class="container mb-[60px]">
+            <div class="container mb-[60px] mt-8">
               <div
                 class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]"
               >
@@ -22,17 +22,19 @@
                     class="jos relative z-10 order-2 mx-auto inline-flex max-w-[500px] items-center justify-center lg:order-1 lg:max-w-full"
                     data-jos_animation="fade-right"
                   >
-                    <img
-                      src="assets/img/images/home-3/content-img-2.png"
-                      alt="content-img-2"
-                      width="571"
-                      height="386"
-                      class="max-w-full rounded-[10px] shadow-custom-1"
-                    />
+                  <img
+  src="{{ asset('img/images/shop-fullmojo.jpg') }}"
+  alt="content-img-2"
+  width="571"
+  height="386"
+  class="max-w-full rounded-[10px] shadow-custom-1"
+/>
+
+
                   </div>
                   <!-- Image Block -->
                   <!-- Content Block -->
-                  <div class="order-1 lg:order-2">
+                  <div class="order-1 lg:order-2">  
                     <!-- Section Block -->
                     <div class="mb-[30px]">
                       <h2 class="jos">{{ $business->name }}</h2>

@@ -14,8 +14,10 @@
                 
                 <!-- Profile Image Block -->
                 <div class="mx-auto flex max-w-[532px] flex-col items-center justify-end overflow-hidden rounded-[10px] border-b-4 border-r-4 border-colorTextTitle bg-colorPurpleLight">
-                    <img src="{{ $user->profile_image_url }}" alt="profile-image" width="519" height="565" class="rounded-full" />
-                </div>
+                <!-- <img src="{{ $user->profile_image_url }}" alt="profile-image" width="519" height="565" class="rounded-full" /> -->
+                <img src="img/images/profile.jpg" alt="profile-image" width="519" height="565" class="" />
+
+            </div>
                 <!-- Profile Image Block -->
 
                 <!-- Profile Content Block -->
@@ -79,14 +81,15 @@
     <div class="section-space">
         @forelse ($user->businesses as $business)  
         <!-- Section Container -->
-        <div class="container mb-[60px]">
+        <div class="container mb-[60px] rounded-[10px] bg-white p-5 shadow-custom-1 sm:p-[50px]">
             <div class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]">
                 <!-- Content Area -->
                 <div class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-2 xl:grid-cols-[minmax(0,0.75fr)_1fr] xl:gap-20">
                     <!-- Image Block -->
                     <div class="jos relative z-10 order-2 mx-auto inline-flex max-w-[500px] items-center justify-center lg:order-1 lg:max-w-full"
                         data-jos_animation="fade-right">
-                        <img src="assets/img/images/home-3/content-img-2.png" 
+                        <img                       
+                            src="img/images/shop-fullmojo.jpg"
                              alt="{{ $business->name }}" 
                              width="571" height="386"
                              class="max-w-full rounded-[10px] shadow-custom-1" />

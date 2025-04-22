@@ -580,7 +580,7 @@ h1,
   font-family: DM Sans, sans-serif;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(14 14 14 / var(--tw-text-opacity, 1));
+  color: rgb(10 60 48 / var(--tw-text-opacity, 1));
 }
 
 h1,
@@ -780,7 +780,7 @@ p:last-child {
   line-height: 1.5rem;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(14 14 14 / var(--tw-text-opacity, 1));
+  color: rgb(10 60 48 / var(--tw-text-opacity, 1));
 }
 
 .btn span {
@@ -817,12 +817,12 @@ p:last-child {
 
 .btn-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(229 171 243 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 222 33 / var(--tw-bg-opacity, 1));
 }
 
 .btn-dark {
   --tw-bg-opacity: 1;
-  background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+  background-color: rgb(10 60 48 / var(--tw-bg-opacity, 1));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
@@ -830,7 +830,7 @@ p:last-child {
 .btn-outline-black {
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(14 14 14 / var(--tw-border-opacity, 1));
+  border-color: rgb(10 60 48 / var(--tw-border-opacity, 1));
 }
 
 
@@ -857,7 +857,7 @@ p:last-child {
 .hover-shadow:hover::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
-  background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+  background-color: rgb(10 60 48 / var(--tw-bg-opacity, 1));
 }
 
 .img-shadow {
@@ -875,7 +875,7 @@ p:last-child {
   border-radius: 10px;
   content: var(--tw-content);
   --tw-bg-opacity: 1;
-  background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+  background-color: rgb(10 60 48 / var(--tw-bg-opacity, 1));
 }
 
 .fixed {
@@ -2097,7 +2097,7 @@ p:last-child {
 
 .border-colorPurpleLight {
   --tw-border-opacity: 1;
-  border-color: rgb(229 171 243 / var(--tw-border-opacity, 1));
+  border-color: rgb(255 214 0 / var(--tw-border-opacity, 1));
 }
 
 .border-colorTextBody {
@@ -2107,7 +2107,7 @@ p:last-child {
 
 .border-colorTextTitle {
   --tw-border-opacity: 1;
-  border-color: rgb(14 14 14 / var(--tw-border-opacity, 1));
+  border-color: rgb(10 60 48 / var(--tw-border-opacity, 1));
 }
 
 .border-transparent {
@@ -2145,7 +2145,7 @@ p:last-child {
 
 .bg-colorPurpleLight {
   --tw-bg-opacity: 1;
-  background-color: rgb(229 171 243 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 214 0 / var(--tw-bg-opacity, 1));
 }
 
 .bg-colorTextBody {
@@ -2155,11 +2155,11 @@ p:last-child {
 
 .bg-colorTextTitle {
   --tw-bg-opacity: 1;
-  background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+  background-color: rgb(10 60 48 / var(--tw-bg-opacity, 1));
 }
 
 .bg-colorTextTitle\/80 {
-  background-color: rgb(14 14 14 / 0.8);
+  background-color: rgb(10 60 48 / 0.8);
 }
 
 .bg-colorYellow {
@@ -2509,7 +2509,7 @@ p:last-child {
 
 .text-colorPurpleLight {
   --tw-text-opacity: 1;
-  color: rgb(229 171 243 / var(--tw-text-opacity, 1));
+  color: rgb(255 214 0 / var(--tw-text-opacity, 1));
 }
 
 .text-colorTextBody {
@@ -2519,7 +2519,7 @@ p:last-child {
 
 .text-colorTextTitle {
   --tw-text-opacity: 1;
-  color: rgb(14 14 14 / var(--tw-text-opacity, 1));
+  color: rgb(10 60 48 / var(--tw-text-opacity, 1));
 }
 
 .text-colorYellow {
@@ -2585,7 +2585,7 @@ p:last-child {
 
 .nav-link-item:hover {
   --tw-text-opacity: 1;
-  color: rgb(229 171 243 / var(--tw-text-opacity, 1));
+  color: rgb(255 214 0 / var(--tw-text-opacity, 1));
 }
 
 .sub-menu--item a:hover {
@@ -2708,13 +2708,13 @@ p:last-child {
 
 .breadcrumb-item a:hover {
   --tw-text-opacity: 1;
-  color: rgb(229 171 243 / var(--tw-text-opacity, 1));
+  color: rgb(255 214 0 / var(--tw-text-opacity, 1));
 }
 
 .breadcrumb-item.active {
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(229 171 243 / var(--tw-text-opacity, 1));
+  color: rgb(255 214 0 / var(--tw-text-opacity, 1));
 }
 
 /* Section Text */
@@ -2778,7 +2778,7 @@ p:last-child {
 
 .testimonial-thumbs .swiper-slide-thumb-active img {
   --tw-border-opacity: 1;
-  border-color: rgb(229 171 243 / var(--tw-border-opacity, 1));
+  border-color: rgb(255 214 0 / var(--tw-border-opacity, 1));
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
@@ -2834,13 +2834,13 @@ p:last-child {
   border-radius: 10px;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(14 14 14 / var(--tw-border-opacity, 1));
+  border-color: rgb(10 60 48 / var(--tw-border-opacity, 1));
   padding: 1.25rem;
 }
 
 .accordion-item-style-2.active {
   --tw-bg-opacity: 1;
-  background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+  background-color: rgb(10 60 48 / var(--tw-bg-opacity, 1));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
@@ -2859,7 +2859,7 @@ p:last-child {
   border-radius: 50px;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(14 14 14 / var(--tw-border-opacity, 1));
+  border-color: rgb(10 60 48 / var(--tw-border-opacity, 1));
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 0.75rem;
@@ -2872,9 +2872,9 @@ p:last-child {
 
 .tab-button.active {
   --tw-border-opacity: 1;
-  border-color: rgb(229 171 243 / var(--tw-border-opacity, 1));
+  border-color: rgb(255 214 0 / var(--tw-border-opacity, 1));
   --tw-bg-opacity: 1;
-  background-color: rgb(229 171 243 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 214 0 / var(--tw-bg-opacity, 1));
 }
 
 /* Pagination */
@@ -2901,12 +2901,12 @@ p:last-child {
 
 .page-item:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(229 171 243 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 214 0 / var(--tw-bg-opacity, 1));
 }
 
 .page-item.active {
   --tw-bg-opacity: 1;
-  background-color: rgb(229 171 243 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 214 0 / var(--tw-bg-opacity, 1));
 }
 
 /* Rich Text Block */
@@ -2944,7 +2944,7 @@ p:last-child {
   margin-bottom: 30px;
   border-radius: 10px;
   --tw-bg-opacity: 1;
-  background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+  background-color: rgb(10 60 48 / var(--tw-bg-opacity, 1));
   padding: 30px;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -2978,7 +2978,7 @@ p:last-child {
   gap: 1rem;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(14 14 14 / var(--tw-text-opacity, 1));
+  color: rgb(10 60 48 / var(--tw-text-opacity, 1));
 }
 
 .rich-text-block ol {
@@ -2990,7 +2990,7 @@ p:last-child {
   gap: 1rem;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(14 14 14 / var(--tw-text-opacity, 1));
+  color: rgb(10 60 48 / var(--tw-text-opacity, 1));
 }
 
 .placeholder\:text-colorTextBody::-moz-placeholder {
@@ -3006,7 +3006,7 @@ p:last-child {
 .before\:bg-colorTextTitle::before {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
-  background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+  background-color: rgb(10 60 48 / var(--tw-bg-opacity, 1));
 }
 
 .before\:bg-white::before {
@@ -3018,7 +3018,7 @@ p:last-child {
 .after\:bg-colorTextTitle::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
-  background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+  background-color: rgb(10 60 48 / var(--tw-bg-opacity, 1));
 }
 
 .after\:bg-white::after {
@@ -3047,12 +3047,12 @@ p:last-child {
 
 .hover\:border-colorPurpleLight:hover {
   --tw-border-opacity: 1;
-  border-color: rgb(229 171 243 / var(--tw-border-opacity, 1));
+  border-color: rgb(255 214 0 / var(--tw-border-opacity, 1));
 }
 
 .hover\:border-colorTextTitle:hover {
   --tw-border-opacity: 1;
-  border-color: rgb(14 14 14 / var(--tw-border-opacity, 1));
+  border-color: rgb(10 60 48 / var(--tw-border-opacity, 1));
 }
 
 .hover\:bg-black:hover {
@@ -3067,12 +3067,12 @@ p:last-child {
 
 .hover\:bg-colorPurpleLight:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(229 171 243 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 214 0 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-colorTextTitle:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(14 14 14 / var(--tw-bg-opacity, 1));
+  background-color: rgb(10 60 48 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:font-medium:hover {
@@ -3081,12 +3081,12 @@ p:last-child {
 
 .hover\:text-colorPurpleLight:hover {
   --tw-text-opacity: 1;
-  color: rgb(229 171 243 / var(--tw-text-opacity, 1));
+  color: rgb(255 214 0 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-colorTextTitle:hover {
   --tw-text-opacity: 1;
-  color: rgb(14 14 14 / var(--tw-text-opacity, 1));
+  color: rgb(10 60 48 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-white:hover {
@@ -3114,7 +3114,7 @@ p:last-child {
 }
 
 .group:nth-child(even) .group-even\:bg-colorPurpleLight\/80 {
-  background-color: rgb(229 171 243 / 0.8);
+  background-color: rgb(255 214 0 / 0.8);
 }
 
 .group:hover .group-hover\:-translate-y-full {
@@ -3145,7 +3145,7 @@ p:last-child {
 
 .group:hover .group-hover\:bg-colorPurpleLight {
   --tw-bg-opacity: 1;
-  background-color: rgb(229 171 243 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 214 0 / var(--tw-bg-opacity, 1));
 }
 
 .group:hover .group-hover\:bg-white {
@@ -3168,7 +3168,7 @@ p:last-child {
 
 .group:hover .group-hover\:text-colorTextTitle {
   --tw-text-opacity: 1;
-  color: rgb(14 14 14 / var(--tw-text-opacity, 1));
+  color: rgb(10 60 48 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:text-white {
