@@ -53,6 +53,32 @@
                   <!-- Content Block -->
                   <div class="order-1 lg:order-2">
                     <div class="mb-[30px]">
+                    <form action="{{ route('offers.save', $offer->id) }}" method="POST">
+    @csrf
+    <button type="submit">Guardar</button>
+</form>
+
+<form action="{{ route('offers.unsave', $offer->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit">Eliminar de guardadas</button>
+</form>
+
+                    @auth
+    @if(auth()->user()->savedOffers->contains($offer->id))
+        <form action="{{ route('offers.unsave', $offer->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">💔 Quitar de favoritos</button>
+        </form>
+    @else
+        <form action="{{ route('offers.save', $offer->id) }}" method="POST">
+            @csrf
+            <button type="submit">❤️ Guardar oferta</button>
+        </form>
+    @endif
+@endauth
+
                       <h2 class="jos">{{ $offer->title }}</h2>
                       <p class="mt-5">
                         {{ $offer->description ?? 'No description available' }}
@@ -177,6 +203,9 @@
                 </div>
             </div>
         </div>
+
+        <a href="{{ route('offers.saved') }}">Mis ofertas guardadas</a>
+
     </section>
     <!--...::: CTA Section End :::... -->
 </main>

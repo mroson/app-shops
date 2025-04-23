@@ -33,5 +33,17 @@ class Offer extends Model
     return $this->belongsToMany(User::class, 'offer_scans'); // Asegúrate de que la tabla pivot sea la correcta
 
 }
+public function savedByUsers()
+{
+    return $this->belongsToMany(User::class, 'offer_user')->withTimestamps();
+}
+
+public function mySavedOffers()
+{
+    $offers = auth()->user()->savedOffers()->latest()->paginate(10);
+    return view('offers.saved', compact('offers'));
+}
+
+
 
 }

@@ -55,6 +55,18 @@ class User extends Authenticatable
         return $this->belongsToMany(Offer::class)->withTimestamps();
     }
 
+    public function savedOffers()
+{
+    return $this->belongsToMany(Offer::class, 'offer_user')->withTimestamps();
+}
+public function mySavedOffers()
+{
+    $offers = auth()->user()->savedOffers()->latest()->paginate(10);
+    return view('offers.saved', compact('offers'));
+}
+
+
+
     protected static function boot()
     {
         parent::boot();

@@ -12,6 +12,8 @@ use App\Http\Controllers\OfferController;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Http\Controllers\OfferRedemptionController;
 use App\Http\Controllers\UserRoleController;
+use App\Http\Controllers\SavedOfferController;
+
 
 
 Route::get('/', function () {
@@ -84,5 +86,13 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.e
 Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+
+// Ruta para asignar ofertas a un usuario
+Route::middleware(['auth'])->group(function () {
+    Route::get('/saved', [OfferController::class, 'mySavedOffers'])->name('offers.saved');
+    Route::post('/saved/{offer}', [SavedOfferController::class, 'store'])->name('offers.save');
+    Route::delete('/saved/{offer}', [SavedOfferController::class, 'destroy'])->name('offers.unsave');
+});
+
 
 

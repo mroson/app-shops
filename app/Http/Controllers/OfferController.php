@@ -106,4 +106,19 @@ class OfferController extends Controller
         $offer->delete();
         return redirect()->route('offers.index')->with('success', 'Offer deleted successfully.');
     }
+
+    public function mySavedOffers()
+{
+    // Verifica si el usuario está autenticado
+    $user = auth()->user();
+    
+    // Si el usuario está autenticado, obtiene las ofertas guardadas
+    $offers = $user->savedOffers()->latest()->paginate(10);
+    
+    return view('offers.saved', compact('offers'));
+}
+
+
+     
+
 }
