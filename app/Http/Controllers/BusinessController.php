@@ -5,15 +5,30 @@ use App\Models\Business;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Models\Category;
+
 
 class BusinessController extends Controller
 {
     // Mostrar todos los negocios
-    public function index()
-    {
+    public function index(Request $request)
+{
+    // Si hay un parámetro 'category_id' en la solicitud, filtra los negocios por esa categoría
+    if ($request->has('category_id') && $request->category_id != '') {
+        $businesses = Business::whereHas('categories', function ($query) use ($request) {
+            $query->where('categories.id', $request->category_id);
+        })->get();
+    } else {
+        // Si no hay filtro, obten todos los negocios
         $businesses = Business::all();
-        return view('businesses.index', compact('businesses'));
     }
+
+    // Obtener todas las categorías para el filtro en la vista
+    $categories = Category::all();
+
+    // Pasar las variables a la vista
+    return view('businesses.index', compact('businesses', 'categories'));
+}
 
     // Mostrar un negocio específico
     public function show($id)
@@ -54,15 +69,22 @@ class BusinessController extends Controller
             return redirect()->route('businesses.index')->with('error', 'You do not have permission to create a business.');
         }
 
+        $business->categories()->sync($request->input('categories', []));
+
         // Agregar owner_id
         $validated['owner_id'] = auth()->id();
 
         // Crear negocio y verificar
         $business = Business::create($validated);
-
+        $categories = Category::all();
+        return view('businesses.create', compact('categories'));
+        
         if (!$business) {
             return back()->with('error', 'Error saving the business.');
         }
+
+        // Ahora sí: sincronizar categorías
+$business->categories()->sync($request->input('categories', []));
 
         return redirect()->route('businesses.index')->with('success', 'Business created successfully!');
     }
@@ -80,7 +102,9 @@ class BusinessController extends Controller
         if (auth()->id() !== $business->owner_id && auth()->user()->role !== 'admin_user') {
             return redirect()->route('businesses.index')->with('error', 'You do not have permission to edit this business.');
         }
-
+        $categories = Category::all();
+        return view('businesses.edit', compact('business', 'categories'));
+        
         return view('businesses.edit', compact('business'));
     }
 
@@ -109,6 +133,9 @@ class BusinessController extends Controller
 
         // Actualizar negocio
         $business->update($validated);
+
+        $business->categories()->sync($request->input('categories', []));
+
 
         return redirect()->route('businesses.index')->with('success', 'Business updated successfully!');
     }

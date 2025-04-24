@@ -38,4 +38,14 @@ class Business extends Model
     return $this->hasMany(Offer::class);
     }
 
+
+    /** Categorias de negocios */
+
+    public function categories()
+{
+    return $this->belongsToMany(Category::class);
+}
+
+
+
 }

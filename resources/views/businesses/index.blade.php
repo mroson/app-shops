@@ -45,8 +45,30 @@
 
     <section class="section-business-list">
         <div class="section-space">
-            
-   
+            <div class="container mb-[60px] rounded-[10px] bg-white p-5 shadow-custom-1 sm:p-[50px]">
+            <!-- Filtro por Categoría -->
+                <div class="filter-section mb-6">
+                  <form method="GET" action="{{ route('businesses.index') }}">
+                    <div class="flex gap-4 items-center">
+                      <select name="category_id" id="category_id" class="form-control">
+                        <option value="">Select Category</option>
+                          @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" 
+                              {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                              </option>
+                            @endforeach
+                        </select>
+                          <button type="submit" class="btn btn-primary">Filter</button>
+                      </div>
+                  </form>
+                </div>
+
+                @if (request('category_id'))
+                    <p class="mb-4 text-center">Showing businesses in category: {{ $categories->find(request('category_id'))->name }}</p>
+                @endif
+</div>
+
         @forelse ($businesses ?? [] as $business)  
         
             <!-- Section Container -->

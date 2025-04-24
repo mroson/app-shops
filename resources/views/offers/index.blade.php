@@ -53,16 +53,7 @@
                   <!-- Content Block -->
                   <div class="order-1 lg:order-2">
                     <div class="mb-[30px]">
-                    <form action="{{ route('offers.save', $offer->id) }}" method="POST">
-    @csrf
-    <button type="submit">Guardar</button>
-</form>
-
-<form action="{{ route('offers.unsave', $offer->id) }}" method="POST">
-    @csrf
-    @method('DELETE')
-    <button type="submit">Eliminar de guardadas</button>
-</form>
+                    
 
                     @auth
     @if(auth()->user()->savedOffers->contains($offer->id))
@@ -137,24 +128,31 @@
                     </ul>
 
                     <!-- Acciones -->
-                    <div class="flex flex-col gap-3 lg:flex-row">
-                    <a href="{{ $offer->business->google_maps_url }}" target="_blank" class="btn btn-outline-black">
-                                        <span>View on Map</span>
-                                        <span>View on Map</span>
-                                    </a>
-                      <a href="{{ route('offers.edit', $offer->id) }}" class="btn btn-outline-black">
-                        <span>Edit</span>
-                        <span>Edit</span>
-                      </a>
-                      <form action="{{ route('offers.destroy', $offer->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')">
-                          <span>Delete</span>
-                          <span>Delete</span>
-                        </button>
-                      </form>
-                    </div>
+<div class="flex flex-col gap-3 lg:flex-row">
+    <a href="{{ $offer->business->google_maps_url }}" target="_blank" class="btn btn-outline-black">
+        <span>Ver en Mapa</span>
+        <span>Ver en Mapa</span>
+    </a>
+
+    @auth
+        @if(auth()->id() === $offer->business->owner_id)
+            <a href="{{ route('offers.edit', $offer->id) }}" class="btn btn-outline-black">
+                <span>Editar</span>
+                <span>Editar</span>
+            </a>
+            <form action="{{ route('offers.destroy', $offer->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-primary" onclick="return confirm('¿Estás seguro de eliminar la oferta?')">
+                    <span>Eliminar</span>
+                    <span>Eliminar</span>
+                </button>
+            </form>
+        @endif
+    @endauth
+</div>
+
+
                   </div>
                 </div>
               </div>

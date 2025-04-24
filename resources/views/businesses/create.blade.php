@@ -61,6 +61,21 @@
                                         class="w-full rounded-[50px] border border-colorTextTitle bg-white px-[30px] py-4 text-base leading-none outline-none"
                                         required>
                                 </div>
+                                <!-- Categorías -->
+<div>
+    <label for="categories" class="mb-4 block font-semibold text-colorTextTitle">Categorías</label>
+    <select name="categories[]" id="categories" multiple
+        class="w-full rounded-[50px] border border-colorTextTitle bg-white px-[30px] py-4 text-base leading-none outline-none">
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}"
+                @if(isset($business) && $business->categories->contains($category->id)) selected @endif>
+                {{ $category->name }}
+            </option>
+        @endforeach
+    </select>
+    <p class="mt-2 text-sm text-gray-500">Usá Ctrl (Cmd en Mac) para seleccionar múltiples categorías.</p>
+</div>
+
                                 <!-- Email -->
                                 <div>
                                     <label for="email" class="mb-4 block font-semibold text-colorTextTitle">Email</label>

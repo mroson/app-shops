@@ -28,7 +28,7 @@
                     </p>
 
                     <!-- Profile Info List -->
-                    <ul class="flex flex-col gap-y-6 font-title text-2xl font-bold tracking-normal text-colorTextTitle">
+                    <ul class="flex flex-col gap-y-6 font-title text-1xl font-bold tracking-normal text-colorTextTitle">
                         <li class="jos flex flex-col gap-x-9 gap-y-4 sm:flex-row">
                             <span class="inline-block min-w-[155px]">Name:</span>
                             <span>{{ $user->name }}</span>
@@ -66,6 +66,11 @@
         <span>Edit Profile</span>
         <span>Edit Profile</span>
     </a>
+
+    <a href="{{ route('offers.saved') }}" class="btn btn-primary flex w-full">
+        <span>My Saved Offers</span>
+        <span>My Saved Offers</span>
+    </a>
 </div>
         </div>
     </div>
@@ -75,10 +80,11 @@
 
 <section class="section-business-list">
 
-<div class="mx-auto mb-10 max-w-2xl text-center md:mb-[60px] lg:mb-20">
+<div class="mx-auto mb-5 max-w-2xl text-center md:mb-[20px] lg:mb-5">
     <h2>Your Businness</h2>
             </div>
     <div class="section-space">
+
         @forelse ($user->businesses as $business)  
         <!-- Section Container -->
         <div class="container mb-[60px] rounded-[10px] bg-white p-5 shadow-custom-1 sm:p-[50px]">
